@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uniquegram/widgets/email_form_widget.dart';
-import 'package:uniquegram/widgets/form_widget.dart';
+import 'package:uniquegram/widgets/password_form_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -90,7 +90,7 @@ class LoginScreen extends StatelessWidget {
                           SizedBox(height: 36.w),
                           const EmailFormWidget(),
                           SizedBox(height: 32.w),
-                          const FormWidget(),
+                          const PasswordFormWidget(),
                           Padding(
                             padding: EdgeInsets.only(
                               top: 50.0.w,
