@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:uniquegram/widgets/email_form_widget.dart';
 import 'package:uniquegram/widgets/form_widget.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -87,7 +88,7 @@ class LoginScreen extends StatelessWidget {
                             ],
                           ),
                           SizedBox(height: 36.w),
-                          const FormWidget(),
+                          const EmailFormWidget(),
                           SizedBox(height: 32.w),
                           const FormWidget(),
                           Padding(
@@ -101,6 +102,16 @@ class LoginScreen extends StatelessWidget {
                               height: 46,
                               child: ElevatedButton(
                                 onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: const Color(0xffF35383),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                  textStyle: const TextStyle(
+                                    fontFamily: 'GB',
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 child: const Text(
                                   'Sign in',
                                 ),

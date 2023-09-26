@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class FormWidget extends StatefulWidget {
-  const FormWidget({super.key});
+class EmailFormWidget extends StatefulWidget {
+  const EmailFormWidget({super.key});
 
   @override
-  State<FormWidget> createState() => _FormWidgetState();
+  State<EmailFormWidget> createState() => _FormWidgetState();
 }
 
-class _FormWidgetState extends State<FormWidget> {
+class _FormWidgetState extends State<EmailFormWidget> {
   final FocusNode focusNode = FocusNode();
   @override
   void initState() {
@@ -33,15 +33,8 @@ class _FormWidgetState extends State<FormWidget> {
         style: const TextStyle(color: Colors.white),
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
-          suffixIcon: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.remove_red_eye_outlined,
-              color: Colors.white,
-            ),
-          ),
           prefixIcon: const Icon(
-            Icons.lock,
+            Icons.email,
             color: Colors.white,
           ),
           hintStyle: TextStyle(
@@ -75,10 +68,10 @@ class _FormWidgetState extends State<FormWidget> {
               width: 3.0,
             ),
           ),
-          hintText: 'Please enter you password here',
+          hintText: 'example@gmail.com',
           contentPadding:
               EdgeInsets.symmetric(vertical: 15.w, horizontal: 15.w),
-          labelText: 'Password',
+          labelText: 'Email',
           labelStyle: TextStyle(
             fontFamily: 'GM',
             fontSize: 20,
@@ -86,7 +79,7 @@ class _FormWidgetState extends State<FormWidget> {
           ),
         ),
         onChanged: (value) {},
-        obscuringCharacter: '*',
+        
       ),
     );
   }
