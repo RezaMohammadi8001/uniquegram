@@ -1,18 +1,18 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class EmailFormWidget extends StatefulWidget {
-  const EmailFormWidget({super.key});
+class PasswordFormWidget extends StatefulWidget {
+  const PasswordFormWidget({super.key});
 
   @override
-  State<EmailFormWidget> createState() => _FormWidgetState();
+  State<PasswordFormWidget> createState() => _PasswordFormWidgetState();
 }
 
-class _FormWidgetState extends State<EmailFormWidget> {
+class _PasswordFormWidgetState extends State<PasswordFormWidget> {
   final FocusNode focusNode = FocusNode();
-  final emailFormKey = GlobalKey<FormState>();
+  final passwordFormkey = GlobalKey<FormState>();
   bool isValid = false;
+  bool obscureText = true;
   @override
   void initState() {
     focusNode.addListener(() {
@@ -30,7 +30,7 @@ class _FormWidgetState extends State<EmailFormWidget> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: emailFormKey,
+      key: passwordFormkey,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 44.0.w),
@@ -39,8 +39,19 @@ class _FormWidgetState extends State<EmailFormWidget> {
           style: const TextStyle(color: Colors.white),
           textInputAction: TextInputAction.done,
           decoration: InputDecoration(
+            suffixIcon: IconButton(
+              onPressed: () {
+                setState(() {
+                  obscureText = !obscureText;
+                });
+              },
+              icon: const Icon(
+                Icons.remove_red_eye_outlined,
+                color: Colors.white,
+              ),
+            ),
             prefixIcon: const Icon(
-              Icons.email,
+              Icons.lock,
               color: Colors.white,
             ),
             hintStyle: TextStyle(
@@ -74,18 +85,19 @@ class _FormWidgetState extends State<EmailFormWidget> {
                 width: 3.0,
               ),
             ),
-            hintText: 'example@gmail.com',
+            hintText: 'Please enter you password here',
             contentPadding:
                 EdgeInsets.symmetric(vertical: 15.w, horizontal: 15.w),
-            labelText: 'Email',
+            labelText: 'Password',
             labelStyle: TextStyle(
               fontFamily: 'GM',
               fontSize: 20,
               color: _detectTextColor(focusNode, isValid),
             ),
           ),
+          obscureText: obscureText,
           onChanged: (value) {
-            if (!EmailValidator.validate(value)) {
+            if (value.length < 8) {
               setState(() {
                 isValid = false;
               });
@@ -96,12 +108,13 @@ class _FormWidgetState extends State<EmailFormWidget> {
             }
           },
           validator: (value) {
-            if (value != null && !EmailValidator.validate(value)) {
-              return 'please enter a valid email';
+            if (value != null && value.length < 8) {
+              return 'password is very short';
             } else {
               return null;
             }
           },
+          obscuringCharacter: '*',
         ),
       ),
     );
