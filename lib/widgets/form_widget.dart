@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FormWidget extends StatelessWidget {
   const FormWidget({super.key});
@@ -6,7 +7,7 @@ class FormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 44.0, vertical: 10.0),
+      padding: EdgeInsets.symmetric(horizontal: 44.0.w),
       child: TextFormField(
         style: const TextStyle(color: Colors.white),
         textInputAction: TextInputAction.done,
@@ -50,7 +51,7 @@ class FormWidget extends StatelessWidget {
           ),
           hintText: 'Please enter you password here',
           contentPadding:
-              const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+              EdgeInsets.symmetric(vertical: 15.w, horizontal: 15.w),
           labelText: 'Password',
           labelStyle: const TextStyle(
             fontFamily: 'GM',

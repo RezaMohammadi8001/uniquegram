@@ -63,7 +63,7 @@ class LoginScreen extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          const SizedBox(height: 30),
+                          SizedBox(height: 50.h),
                           const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -86,12 +86,16 @@ class LoginScreen extends StatelessWidget {
                               ),
                             ],
                           ),
+                          SizedBox(height: 36.w),
                           const FormWidget(),
+                          SizedBox(height: 32.w),
                           const FormWidget(),
                           Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 150.0,
-                              vertical: 20.0,
+                            padding: EdgeInsets.only(
+                              top: 50.0.w,
+                              bottom: 32.0.w,
+                              right: 150.w,
+                              left: 150.w,
                             ),
                             child: SizedBox(
                               height: 46,
@@ -103,7 +107,6 @@ class LoginScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(height: 40.h),
                           const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
