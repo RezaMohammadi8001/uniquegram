@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uniquegram/screens/login_screen.dart';
 
 class SwitchAccountScreen extends StatelessWidget {
@@ -29,10 +30,10 @@ class SwitchAccountScreen extends StatelessWidget {
                   top: 220,
                   child: ClipRect(
                     child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                      filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
                       child: Container(
-                        width: 340,
-                        height: 352,
+                        width: 340.w,
+                        height: 352.w,
                         decoration: BoxDecoration(
                           gradient: const LinearGradient(
                             begin: Alignment.topLeft,
@@ -46,16 +47,17 @@ class SwitchAccountScreen extends StatelessWidget {
                         ),
                         child: Column(
                           children: [
-                            const SizedBox(height: 32),
+                            SizedBox(height: 32.w),
                             ClipRRect(
                               borderRadius: BorderRadius.circular(30),
-                              child: const Image(
-                                width: 120,
-                                height: 120,
-                                image: AssetImage('assets/images/pro2.jpg'),
+                              child: Image(
+                                width: 129.w,
+                                height: 129.w,
+                                image:
+                                    const AssetImage('assets/images/pro2.jpg'),
                               ),
                             ),
-                            const SizedBox(height: 20),
+                            SizedBox(height: 20.w),
                             const Text(
                               'Reza Mohammadi',
                               style: TextStyle(
@@ -64,7 +66,7 @@ class SwitchAccountScreen extends StatelessWidget {
                                 color: Colors.white,
                               ),
                             ),
-                            const SizedBox(height: 20),
+                            SizedBox(height: 20.w),
                             ElevatedButton(
                               onPressed: () {
                                 Navigator.pushReplacement(
@@ -86,7 +88,7 @@ class SwitchAccountScreen extends StatelessWidget {
                               ),
                               child: const Text('Confirm'),
                             ),
-                            const SizedBox(height: 20),
+                            SizedBox(height: 32.w),
                             const Text(
                               'switch Account',
                               style: TextStyle(
