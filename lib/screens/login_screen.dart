@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:uniquegram/screens/switch_account_screen.dart';
 import 'package:uniquegram/widgets/email_form_widget.dart';
 import 'package:uniquegram/widgets/password_form_widget.dart';
 
@@ -101,7 +102,14 @@ class LoginScreen extends StatelessWidget {
                             child: SizedBox(
                               height: 46,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const SwitchAccountScreen(),
+                                      ));
+                                },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: const Color(0xffF35383),
                                   shape: RoundedRectangleBorder(
