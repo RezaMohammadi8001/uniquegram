@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:uniquegram/screens/main_screen.dart';
 import 'package:uniquegram/screens/switch_account_screen.dart';
 import 'package:uniquegram/widgets/email_form_widget.dart';
 import 'package:uniquegram/widgets/password_form_widget.dart';
@@ -107,7 +108,7 @@ class LoginScreen extends StatelessWidget {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            const SwitchAccountScreen(),
+                                            const MainScreen(),
                                       ));
                                 },
                                 style: ElevatedButton.styleFrom(
