@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -50,8 +51,8 @@ class _MainScreenState extends State<MainScreen> {
           ),
           BottomNavigationBarItem(
             icon: Container(
-              width: 26.0,
-              height: 26.0,
+              width: 26.0.w,
+              height: 26.0.w,
               decoration: BoxDecoration(
                 border: Border.all(
                   width: 2.0,
@@ -70,8 +71,8 @@ class _MainScreenState extends State<MainScreen> {
               ),
             ),
             activeIcon: Container(
-              width: 26.0,
-              height: 26.0,
+              width: 26.0.w,
+              height: 26.0.w,
               decoration: BoxDecoration(
                 border: Border.all(
                   width: 2.0,
