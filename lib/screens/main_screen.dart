@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:uniquegram/screens/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -13,13 +14,18 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _getlayout(),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color(0xff1C1F2E),
         currentIndex: _currentIndex,
         selectedFontSize: 20,
         onTap: (value) {
-          _currentIndex = value;
-          setState(() {});
+          setState(() {
+            _currentIndex = value;
+          });
         },
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
@@ -95,5 +101,14 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
     );
+  }
+
+  List<Widget> _getlayout() {
+    return <Widget>[
+      const HomeScrenn(),
+      const HomeScrenn(),
+      const HomeScrenn(),
+      const HomeScrenn(),
+    ];
   }
 }
