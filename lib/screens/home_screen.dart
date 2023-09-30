@@ -15,7 +15,15 @@ class HomeScrenn extends StatelessWidget {
         title: const SizedBox(
           width: 128,
           height: 24,
-          child: Text('Uniquegram,'),
+          child: Text(
+            'Uniquegram',
+            style: TextStyle(
+              fontFamily: 'GB',
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
         ),
         actions: [
           Container(
@@ -35,8 +43,47 @@ class HomeScrenn extends StatelessWidget {
               height: 120,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => _getListStoryBox(index),
+                itemBuilder: (context, index) => index == 0
+                    ? _getAddStroryWidget()
+                    : _getListStoryBox(index),
               ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _getAddStroryWidget() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+      child: Column(
+        children: [
+          Container(
+            width: 64,
+            height: 64,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(17),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Container(
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(
+                  color: const Color(0xff1C1F2E),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Image.asset('assets/images/icon_plus.png'),
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+          const Text(
+            'Your Story',
+            style: TextStyle(
+              color: Colors.white,
             ),
           )
         ],
