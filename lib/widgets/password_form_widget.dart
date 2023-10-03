@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PasswordFormWidget extends StatefulWidget {
-  const PasswordFormWidget({super.key});
+  const PasswordFormWidget({super.key,required this.passwordFormKey});
+  final GlobalKey<FormState> passwordFormKey;
 
   @override
   State<PasswordFormWidget> createState() => _PasswordFormWidgetState();
@@ -30,7 +31,7 @@ class _PasswordFormWidgetState extends State<PasswordFormWidget> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: passwordFormkey,
+      key: widget.passwordFormKey,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 44.0.w),

@@ -9,6 +9,9 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<FormState> emailFormKey = GlobalKey<FormState>();
+    final GlobalKey<FormState> passwordFormKey = GlobalKey<FormState>();
+
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -89,9 +92,13 @@ class LoginScreen extends StatelessWidget {
                             ],
                           ),
                           SizedBox(height: 36.w),
-                          const EmailFormWidget(),
+                          EmailFormWidget(
+                            emailFormKey: emailFormKey,
+                          ),
                           SizedBox(height: 32.w),
-                          const PasswordFormWidget(),
+                          PasswordFormWidget(
+                            passwordFormKey: passwordFormKey,
+                          ),
                           Padding(
                             padding: EdgeInsets.only(
                               top: 50.0.w,
@@ -103,12 +110,23 @@ class LoginScreen extends StatelessWidget {
                               height: 46,
                               child: ElevatedButton(
                                 onPressed: () {
-                                  Navigator.pushReplacement(
+                                  final isEmailValid =
+                                      emailFormKey.currentState?.validate() ??
+                                          false;
+                                  final isPasswordValid = passwordFormKey
+                                          .currentState
+                                          ?.validate() ??
+                                      false;
+
+                                  if (isEmailValid && isPasswordValid) {
+                                    Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
                                             const SwitchAccountScreen(),
-                                      ));
+                                      ),
+                                    );
+                                  }
                                 },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: const Color(0xffF35383),

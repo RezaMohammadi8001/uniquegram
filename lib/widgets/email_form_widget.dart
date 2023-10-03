@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EmailFormWidget extends StatefulWidget {
-  const EmailFormWidget({super.key});
+  const EmailFormWidget({super.key, required this.emailFormKey});
+  final GlobalKey<FormState> emailFormKey;
 
   @override
   State<EmailFormWidget> createState() => _FormWidgetState();
@@ -30,7 +31,7 @@ class _FormWidgetState extends State<EmailFormWidget> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: emailFormKey,
+      key: widget.emailFormKey,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 44.0.w),
