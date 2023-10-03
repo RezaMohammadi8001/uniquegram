@@ -1,5 +1,8 @@
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:uniquegram/widgets/add_story_widget.dart';
+import 'package:uniquegram/widgets/post_widget.dart';
+import 'package:uniquegram/widgets/story_widget.dart';
 
 class HomeScrenn extends StatelessWidget {
   const HomeScrenn({super.key});
@@ -12,26 +15,31 @@ class HomeScrenn extends StatelessWidget {
         backgroundColor: const Color(0xff1C1F2E),
         centerTitle: false,
         elevation: 0,
-        title: const SizedBox(
-          width: 128,
-          height: 24,
-          child: Text(
-            'Uniquegram',
-            style: TextStyle(
-              fontFamily: 'GB',
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+        title: Padding(
+          padding: EdgeInsets.only(left: 17.w),
+          child: const SizedBox(
+            width: 128,
+            height: 24,
+            child: Text(
+              'Uniquegram',
+              style: TextStyle(
+                fontFamily: 'GB',
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
           ),
         ),
         actions: [
-          Container(
-            width: 24,
-            height: 24,
-            margin: const EdgeInsets.only(right: 18.0),
-            child: Image.asset(
-              'assets/images/icon_direct.png',
+          Padding(
+            padding: EdgeInsets.only(right: 17.w),
+            child: SizedBox(
+              width: 24.w,
+              height: 24.w,
+              child: Image.asset(
+                'assets/images/icon_direct.png',
+              ),
             ),
           ),
         ],
@@ -40,89 +48,23 @@ class HomeScrenn extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(
             child: SizedBox(
-              height: 120,
+              height: 120.w,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) => index == 0
-                    ? _getAddStroryWidget()
-                    : _getListStoryBox(index),
+                    ? Padding(
+                        padding: EdgeInsets.only(left: 17.0.w),
+                        child: const AddStoryWidget(),
+                      )
+                    : const StoryWidget(),
               ),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) => const PostWidget(),
             ),
           )
-        ],
-      ),
-    );
-  }
-
-  Widget _getAddStroryWidget() {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-      child: Column(
-        children: [
-          Container(
-            width: 64,
-            height: 64,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(17),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(2.0),
-              child: Container(
-                width: 60,
-                height: 60,
-                decoration: BoxDecoration(
-                  color: const Color(0xff1C1F2E),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Image.asset('assets/images/icon_plus.png'),
-              ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          const Text(
-            'Your Story',
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget _getListStoryBox(int index) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-      child: Column(
-        children: [
-          DottedBorder(
-            dashPattern: const [15, 10],
-            strokeWidth: 2,
-            color: const Color(0xffF35383),
-            borderType: BorderType.RRect,
-            radius: const Radius.circular(17),
-            padding: const EdgeInsets.all(4),
-            child: ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(15)),
-              child: SizedBox(
-                height: 58,
-                width: 58,
-                child: Image.asset(
-                  'assets/images/pro2.jpg',
-                  height: 100,
-                  width: 100,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          const Text(
-            'user',
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
         ],
       ),
     );
