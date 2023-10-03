@@ -37,7 +37,7 @@ class _FormWidgetState extends State<EmailFormWidget> {
         child: TextFormField(
           focusNode: focusNode,
           style: const TextStyle(color: Colors.white),
-          textInputAction: TextInputAction.done,
+          textInputAction: TextInputAction.next,
           decoration: InputDecoration(
             prefixIcon: const Icon(
               Icons.email,
