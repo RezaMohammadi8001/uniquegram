@@ -2,7 +2,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uniquegram/widgets/profile_widget.dart';
-import 'package:uniquegram/widgets/story_widget.dart';
 
 class PostWidget extends StatelessWidget {
   const PostWidget({super.key});
@@ -77,7 +76,6 @@ class PostWidget extends StatelessWidget {
                 child: Image.asset('assets/images/icon_video.png'),
               ),
               Positioned(
-                bottom: 5.w,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: BackdropFilter(

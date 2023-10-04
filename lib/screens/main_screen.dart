@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uniquegram/screens/home_screen.dart';
+import 'package:uniquegram/screens/search_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -106,7 +107,7 @@ class _MainScreenState extends State<MainScreen> {
   List<Widget> _getlayout() {
     return <Widget>[
       const HomeScrenn(),
-      const HomeScrenn(),
+      const SearchScreen(),
       const HomeScrenn(),
       const HomeScrenn(),
     ];
