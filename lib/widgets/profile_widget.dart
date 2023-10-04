@@ -1,5 +1,6 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileOfPost extends StatelessWidget {
   const ProfileOfPost({super.key});
@@ -7,7 +8,7 @@ class ProfileOfPost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+      margin: EdgeInsets.symmetric(horizontal: 10.0.w, vertical: 10.0.w),
       child: DottedBorder(
         dashPattern: const [15, 10],
         strokeWidth: 2,

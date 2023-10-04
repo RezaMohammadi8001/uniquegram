@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PasswordFormWidget extends StatefulWidget {
-  const PasswordFormWidget({super.key,required this.passwordFormKey});
+  const PasswordFormWidget({super.key, required this.passwordFormKey});
   final GlobalKey<FormState> passwordFormKey;
 
   @override
@@ -11,7 +11,6 @@ class PasswordFormWidget extends StatefulWidget {
 
 class _PasswordFormWidgetState extends State<PasswordFormWidget> {
   final FocusNode focusNode = FocusNode();
-  final passwordFormkey = GlobalKey<FormState>();
   bool isValid = false;
   bool obscureText = true;
   @override

@@ -12,7 +12,7 @@ class EmailFormWidget extends StatefulWidget {
 
 class _FormWidgetState extends State<EmailFormWidget> {
   final FocusNode focusNode = FocusNode();
-  final emailFormKey = GlobalKey<FormState>();
+
   bool isValid = false;
   @override
   void initState() {
