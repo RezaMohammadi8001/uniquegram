@@ -11,45 +11,51 @@ class HomeScrenn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xff1C1F2E),
-      appBar: AppBar(
-        backgroundColor: const Color(0xff1C1F2E),
-        centerTitle: false,
-        elevation: 0,
-        title: Padding(
-          padding: EdgeInsets.only(left: 17.w),
-          child: const SizedBox(
-            width: 128,
-            height: 24,
-            child: Text(
-              'Uniquegram',
-              style: TextStyle(
-                fontFamily: 'GB',
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 17.w),
-            child: SizedBox(
-              width: 24.w,
-              height: 24.w,
-              child: Image.asset(
-                'assets/images/icon_direct.png',
-              ),
-            ),
-          ),
-        ],
-      ),
       body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
         slivers: [
+          SliverAppBar(
+            pinned: true,
+            toolbarHeight: 65.w,
+            backgroundColor: const Color(0xff1C1F2E),
+            flexibleSpace: Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 30.0.w,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 27.w),
+                    child: const Text(
+                      'Uniquegram',
+                      style: TextStyle(
+                        fontFamily: 'GB',
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xffF35383),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 27.w),
+                    child: SizedBox(
+                      width: 24.w,
+                      height: 24.w,
+                      child: Image.asset(
+                        'assets/images/icon_direct.png',
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
           SliverToBoxAdapter(
             child: SizedBox(
-              height: 120.w,
+              height: 100.w,
               child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) => index == 0
                     ? Padding(
