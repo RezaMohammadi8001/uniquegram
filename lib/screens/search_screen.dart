@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:uniquegram/widgets/cuatom_choice_chip.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List<String> choices = [
+      'All',
+      'Account',
+      'Hashtag',
+      'Story',
+      'Caption',
+      'Comment'
+    ];
     return Scaffold(
       backgroundColor: const Color(0xff1C1F2E),
       body: SafeArea(
@@ -38,6 +47,28 @@ class SearchScreen extends StatelessWidget {
                         border: InputBorder.none,
                         enabledBorder: InputBorder.none,
                         focusedBorder: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Container(
+                height: 35.w,
+                margin: EdgeInsets.only(
+                  top: 10.w,
+                  bottom: 20.w,
+                  left: 9.w,
+                ),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: choices.length,
+                  itemBuilder: (context, index) => SizedBox(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8.w),
+                      child: SizedBox(
+                        child: CustomChoiceChip(choices: choices[index]),
                       ),
                     ),
                   ),
