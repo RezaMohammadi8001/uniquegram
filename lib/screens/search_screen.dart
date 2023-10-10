@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -27,6 +28,11 @@ class SearchScreen extends StatelessWidget {
                             Image.asset('assets/images/icon_search.png'),
                         suffixIcon: Image.asset('assets/images/icon_scan.png'),
                         hintText: 'Search...',
+                        hintStyle: const TextStyle(
+                          fontFamily: 'GB',
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
                         filled: true,
                         fillColor: const Color(0xff272B40),
                         border: InputBorder.none,
@@ -35,6 +41,36 @@ class SearchScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                ),
+              ),
+            ),
+            SliverPadding(
+              padding: EdgeInsets.symmetric(horizontal: 17.w),
+              sliver: SliverGrid(
+                delegate: SliverChildBuilderDelegate(
+                  childCount: 17,
+                  (context, index) => ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: FittedBox(
+                      fit: BoxFit.cover,
+                      child: Image.asset(
+                        'assets/images/nsmobile_wallpaper_h(${index + 1}).jpg',
+                      ),
+                    ),
+                  ),
+                ),
+                gridDelegate: SliverQuiltedGridDelegate(
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                  repeatPattern: QuiltedGridRepeatPattern.inverted,
+                  pattern: [
+                    const QuiltedGridTile(2, 1),
+                    const QuiltedGridTile(2, 2),
+                    const QuiltedGridTile(1, 1),
+                    const QuiltedGridTile(1, 1),
+                    const QuiltedGridTile(1, 1)
+                  ],
                 ),
               ),
             )
