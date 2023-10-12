@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:uniquegram/screens/add_content_screen.dart';
 import 'package:uniquegram/screens/home_screen.dart';
 import 'package:uniquegram/screens/search_screen.dart';
 
@@ -108,7 +109,7 @@ class _MainScreenState extends State<MainScreen> {
     return <Widget>[
       const HomeScrenn(),
       const SearchScreen(),
-      const HomeScrenn(),
+      const AddContentScreen(),
       const HomeScrenn(),
     ];
   }
