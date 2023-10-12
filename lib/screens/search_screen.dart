@@ -56,17 +56,14 @@ class SearchScreen extends StatelessWidget {
             SliverToBoxAdapter(
               child: Container(
                 height: 35.w,
-                margin: EdgeInsets.only(
-                  top: 10.w,
-                  bottom: 20.w,
-                  left: 9.w,
-                ),
+                margin: EdgeInsets.only(top: 10.w, bottom: 20.w, left: 9.w),
                 child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemCount: choices.length,
                   itemBuilder: (context, index) => SizedBox(
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8.w),
+                      padding: EdgeInsets.symmetric(horizontal: 7.w),
                       child: SizedBox(
                         child: CustomChoiceChip(choices: choices[index]),
                       ),
