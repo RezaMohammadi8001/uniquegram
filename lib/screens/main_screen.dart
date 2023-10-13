@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uniquegram/screens/activity_screen.dart';
 import 'package:uniquegram/screens/add_content_screen.dart';
 import 'package:uniquegram/screens/home_screen.dart';
+import 'package:uniquegram/screens/profile_screen.dart';
 import 'package:uniquegram/screens/search_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -112,6 +113,7 @@ class _MainScreenState extends State<MainScreen> {
       const SearchScreen(),
       const AddContentScreen(),
       const ActivityScreen(),
-        ];
+      const ProfileScreen()
+    ];
   }
 }
