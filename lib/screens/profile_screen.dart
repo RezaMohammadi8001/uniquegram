@@ -218,6 +218,16 @@ Lover of technology and a bit of a biologist \u{1F52C}''',
                           width: 190.w,
                           child: ElevatedButton(
                             onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xffF35383),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              textStyle: const TextStyle(
+                                fontFamily: 'GB',
+                                fontSize: 16,
+                              ),
+                            ),
                             child: const Text(
                               'Follow',
                               style: TextStyle(
