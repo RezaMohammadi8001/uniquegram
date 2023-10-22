@@ -25,7 +25,7 @@ class ProfileScreen extends StatelessWidget {
                 expandedHeight: 200,
                 flexibleSpace: FlexibleSpaceBar(
                   background: Image.asset(
-                    'assets/images/pro3.jpg',
+                    'assets/images/coding_bg.jpg',
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -100,7 +100,7 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         ),
                         const Spacer(),
-                        Image.asset('assets/images/icon_search.png'),
+                        Image.asset('assets/images/icon_profile_edit.png'),
                         const SizedBox(width: 17),
                       ],
                     ),
@@ -122,7 +122,7 @@ Lover of technology and a bit of a biologist \u{1F52C}''',
                       children: [
                         const SizedBox(width: 20),
                         Image.asset(
-                          'assets/images/pro3.jpg',
+                          'assets/images/icon_job.png',
                           width: 40,
                         ),
                         const SizedBox(width: 10),
@@ -136,7 +136,7 @@ Lover of technology and a bit of a biologist \u{1F52C}''',
                         ),
                         const SizedBox(width: 10),
                         Image.asset(
-                          'assets/images/pro3.jpg',
+                          'assets/images/icon_location.png',
                           width: 40,
                         ),
                         const SizedBox(width: 10),
@@ -277,10 +277,11 @@ Lover of technology and a bit of a biologist \u{1F52C}''',
                     indicatorWeight: 2.h,
                     tabs: [
                       Tab(
-                        icon: Image.asset('assets/images/pro3.jpg'),
+                        icon: Image.asset('assets/images/icon_posts_tab.png'),
                       ),
                       Tab(
-                        icon: Image.asset('assets/images/pro3.jpg'),
+                        icon:
+                            Image.asset('assets/images/icon_bookmark_tab.png'),
                       ),
                     ],
                   ),
