@@ -25,7 +25,7 @@ class ProfileScreen extends StatelessWidget {
                 expandedHeight: 200,
                 flexibleSpace: FlexibleSpaceBar(
                   background: Image.asset(
-                    'assets/images/pro3.jpg',
+                    'assets/images/coding_bg.jpg',
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -100,7 +100,7 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         ),
                         const Spacer(),
-                        Image.asset('assets/images/icon_search.png'),
+                        Image.asset('assets/images/icon_profile_edit.png'),
                         const SizedBox(width: 17),
                       ],
                     ),
@@ -122,7 +122,7 @@ Lover of technology and a bit of a biologist \u{1F52C}''',
                       children: [
                         const SizedBox(width: 20),
                         Image.asset(
-                          'assets/images/pro3.jpg',
+                          'assets/images/icon_job.png',
                           width: 40,
                         ),
                         const SizedBox(width: 10),
@@ -136,7 +136,7 @@ Lover of technology and a bit of a biologist \u{1F52C}''',
                         ),
                         const SizedBox(width: 10),
                         Image.asset(
-                          'assets/images/pro3.jpg',
+                          'assets/images/icon_location.png',
                           width: 40,
                         ),
                         const SizedBox(width: 10),
@@ -218,6 +218,16 @@ Lover of technology and a bit of a biologist \u{1F52C}''',
                           width: 190.w,
                           child: ElevatedButton(
                             onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xffF35383),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              textStyle: const TextStyle(
+                                fontFamily: 'GB',
+                                fontSize: 16,
+                              ),
+                            ),
                             child: const Text(
                               'Follow',
                               style: TextStyle(
@@ -277,10 +287,11 @@ Lover of technology and a bit of a biologist \u{1F52C}''',
                     indicatorWeight: 2.h,
                     tabs: [
                       Tab(
-                        icon: Image.asset('assets/images/pro3.jpg'),
+                        icon: Image.asset('assets/images/icon_posts_tab.png'),
                       ),
                       Tab(
-                        icon: Image.asset('assets/images/pro3.jpg'),
+                        icon:
+                            Image.asset('assets/images/icon_bookmark_tab.png'),
                       ),
                     ],
                   ),
