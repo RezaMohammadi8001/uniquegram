@@ -6,7 +6,7 @@ class User {
     this.name,
     this.picture,
   );
-  factory User.userfromJson(Map<String, dynamic> map) {
+  factory User.fromJson(Map<String, dynamic> map) {
     return User(
       map['name']['first'],
       map['picture']['large'],
