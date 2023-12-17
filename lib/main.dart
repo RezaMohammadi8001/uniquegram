@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uniquegram/screens/splash_screen.dart';
+import 'package:uniquegram/theme_data.dart';
 
 void main(List<String> args) {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,8 +12,8 @@ void main(List<String> args) {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.white,
-      systemNavigationBarDividerColor: Colors.white,
+      systemNavigationBarColor: Colors.transparent,
+      systemNavigationBarDividerColor: Colors.transparent,
       systemNavigationBarIconBrightness: Brightness.light,
       statusBarIconBrightness: Brightness.light,
     ),
@@ -30,9 +31,10 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
-          return const MaterialApp(
+          return MaterialApp(
+            theme: MyTheme().myTheme,
             debugShowCheckedModeBanner: false,
-            home: SplashScreen(),
+            home: const SplashScreen(),
           );
         });
   }
