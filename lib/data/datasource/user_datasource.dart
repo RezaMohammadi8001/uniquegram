@@ -6,7 +6,7 @@ class UserDatasource {
     try {
       var respones = await Dio()
           .get('https://randomuser.me/api/?page=1&results=30&seed=abc');
-      return respones.data['items']
+      return respones.data['results']
           .map<User>((jsonObject) => User.fromJson(jsonObject))
           .toList();
     } on DioException {
