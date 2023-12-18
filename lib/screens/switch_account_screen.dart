@@ -1,6 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:uniquegram/bloc/User/user_bloc.dart';
 import 'package:uniquegram/screens/main_screen.dart';
 
 class SwitchAccountScreen extends StatelessWidget {
@@ -72,7 +74,10 @@ class SwitchAccountScreen extends StatelessWidget {
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const MainScreen(),
+                                    builder: (context) => BlocProvider(
+                                      create: (context) => UserBloc(),
+                                      child: const MainScreen(),
+                                    ),
                                   ),
                                 );
                               },

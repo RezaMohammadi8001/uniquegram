@@ -51,7 +51,6 @@ class AddContentScreen extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: Container(
                     margin: EdgeInsets.only(
-                      top: 33.w,
                       left: 17.w,
                       right: 17.w,
                       bottom: 10.w,
