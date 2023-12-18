@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:uniquegram/bloc/User/user_bloc.dart';
+import 'package:uniquegram/bloc/User/user_event.dart';
+import 'package:uniquegram/bloc/User/user_state.dart';
 import 'package:uniquegram/widgets/add_story_widget.dart';
 import 'package:uniquegram/widgets/post_widget.dart';
 import 'package:uniquegram/widgets/story_widget.dart';
 
-class HomeScrenn extends StatelessWidget {
+class HomeScrenn extends StatefulWidget {
   const HomeScrenn({super.key});
+
+  @override
+  State<HomeScrenn> createState() => _HomeScrennState();
+}
+
+class _HomeScrennState extends State<HomeScrenn> {
+  @override
+  void initState() {
+    BlocProvider.of<UserBloc>(context).add(UserGetEvent());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,17 +66,34 @@ class HomeScrenn extends StatelessWidget {
               ),
             ),
             SliverToBoxAdapter(
-              child: SizedBox(
-                height: 100.w,
-                child: ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => index == 0
-                      ? Padding(
-                          padding: EdgeInsets.only(left: 17.0.w),
-                          child: const AddStoryWidget(),
-                        )
-                      : const StoryWidget(),
+              child: Padding(
+                padding: EdgeInsets.only(left: 17.0.w),
+                child: SizedBox(
+                  height: 100.w,
+                  child: BlocBuilder<UserBloc, UserState>(
+                    builder: (context, state) {
+                      if (state is UserLoadingState) {
+                        return const SizedBox(
+                          width: 30,
+                          height: 20,
+                        );
+                      }
+                      if (state is UserResponseState) {
+                        var userList = state.userList;
+                        return ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          physics: const BouncingScrollPhysics(),
+                          itemBuilder: (context, index) => index == 0
+                              ? const AddStoryWidget()
+                              : StoryWidget(
+                                  user: userList[index],
+                                ),
+                          itemCount: userList.length,
+                        );
+                      }
+                      return const Text('data');
+                    },
+                  ),
                 ),
               ),
             ),

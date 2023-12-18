@@ -1,10 +1,11 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:uniquegram/data/model/user.dart';
 
 class StoryWidget extends StatelessWidget {
-  const StoryWidget({super.key});
-
+  const StoryWidget({super.key, required this.user});
+  final User user;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,8 +24,8 @@ class StoryWidget extends StatelessWidget {
               child: SizedBox(
                 height: 58.w,
                 width: 58.w,
-                child: Image.asset(
-                  'assets/images/pro2.jpg',
+                child: Image.network(
+                  user.picture,
                   height: 100,
                   width: 100,
                 ),
@@ -32,9 +33,9 @@ class StoryWidget extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-          const Text(
-            'user',
-            style: TextStyle(
+          Text(
+            user.name,
+            style: const TextStyle(
               color: Colors.white,
             ),
           ),
