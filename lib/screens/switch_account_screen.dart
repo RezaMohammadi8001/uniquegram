@@ -74,10 +74,7 @@ class SwitchAccountScreen extends StatelessWidget {
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => BlocProvider(
-                                      create: (context) => UserBloc(),
-                                      child: const MainScreen(),
-                                    ),
+                                    builder: (context) => const MainScreen(),
                                   ),
                                 );
                               },
