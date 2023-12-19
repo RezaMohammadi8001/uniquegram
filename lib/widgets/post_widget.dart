@@ -1,7 +1,11 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:uniquegram/bloc/User/user_bloc.dart';
+import 'package:uniquegram/bloc/User/user_state.dart';
 import 'package:uniquegram/widgets/profile_widget.dart';
+import 'package:uniquegram/widgets/share_bottom_sheet.dart';
 
 class PostWidget extends StatelessWidget {
   const PostWidget({super.key});
@@ -141,11 +145,11 @@ class PostWidget extends StatelessWidget {
                                             .bottom,
                                       ),
                                       child: DraggableScrollableSheet(
-                                          maxChildSize: 0.7,
-                                          minChildSize: 0.4,
-                                          builder:
-                                              (context, scrollController) =>
-                                                  Container()),
+                                        maxChildSize: 0.7,
+                                        minChildSize: 0.4,
+                                        builder: (context, scrollController) =>
+                                            const ShareBottomSheet(),
+                                      ),
                                     ),
                                     barrierColor: Colors.transparent,
                                     backgroundColor: Colors.transparent,
