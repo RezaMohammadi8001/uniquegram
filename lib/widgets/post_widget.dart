@@ -1,12 +1,14 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:uniquegram/data/model/user.dart';
 import 'package:uniquegram/widgets/profile_widget.dart';
 import 'package:uniquegram/widgets/share_bottom_sheet.dart';
 
 class PostWidget extends StatelessWidget {
-  const PostWidget({super.key});
-
+  const PostWidget({super.key, required this.user,required this.index});
+  final User user;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,25 +17,27 @@ class PostWidget extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 17.0.w, vertical: 10.w),
           child: Row(
             children: [
-              const ProfileOfPost(),
+              ProfileOfPost(
+                user: user,
+              ),
               Padding(
                 padding: EdgeInsets.only(left: 10.0.w),
-                child: const Column(
+                child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Reza Mohammadi',
-                      style: TextStyle(
+                      user.name,
+                      style: const TextStyle(
                         fontFamily: 'SM',
                         color: Colors.white,
                         fontSize: 12,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Text(
-                      'Flutter Developer',
-                      style: TextStyle(
+                      user.userName,
+                      style: const TextStyle(
                         fontFamily: 'SM',
                         color: Colors.white,
                         fontSize: 12,
@@ -64,7 +68,7 @@ class PostWidget extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: Image.asset(
-                    'assets/images/pro3.jpg',
+                    'assets/images/nsmobile_wallpaper_h($index).jpg',
                     width: 360.w,
                     height: 330.w,
                     fit: BoxFit.cover,

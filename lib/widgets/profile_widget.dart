@@ -1,10 +1,11 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:uniquegram/data/model/user.dart';
 
 class ProfileOfPost extends StatelessWidget {
-  const ProfileOfPost({super.key});
-
+  const ProfileOfPost({super.key, required this.user});
+  final User user;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,8 +22,8 @@ class ProfileOfPost extends StatelessWidget {
           child: SizedBox(
             height: 58,
             width: 58,
-            child: Image.asset(
-              'assets/images/pro2.jpg',
+            child: Image.network(
+              user.picture,
               height: 100,
               width: 100,
             ),
