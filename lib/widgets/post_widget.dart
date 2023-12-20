@@ -148,7 +148,9 @@ class PostWidget extends StatelessWidget {
                                         maxChildSize: 0.7,
                                         minChildSize: 0.4,
                                         builder: (context, scrollController) =>
-                                            const ShareBottomSheet(),
+                                            ShareBottomSheet(
+                                          scrollController: scrollController,
+                                        ),
                                       ),
                                     ),
                                     barrierColor: Colors.transparent,

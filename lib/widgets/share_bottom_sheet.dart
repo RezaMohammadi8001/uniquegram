@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uniquegram/bloc/User/user_bloc.dart';
 import 'package:uniquegram/bloc/User/user_state.dart';
+import 'package:uniquegram/data/model/user.dart';
 
 class ShareBottomSheet extends StatelessWidget {
   const ShareBottomSheet({super.key, this.scrollController});
@@ -24,7 +25,8 @@ class ShareBottomSheet extends StatelessWidget {
           child: BlocBuilder<UserBloc, UserState>(
             builder: (context, state) {
               if (state is UserResponseState) {
-                return _gridContent(context);
+                var userList = state.userList;
+                return _gridContent(context, userList);
               }
               return Container();
             },
@@ -89,7 +91,7 @@ class ShareBottomSheet extends StatelessWidget {
     );
   }
 
-  Widget _gridContent(BuildContext context) {
+  Widget _gridContent(BuildContext context, List<User> userList) {
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
@@ -103,8 +105,8 @@ class ShareBottomSheet extends StatelessWidget {
             ),
             SliverGrid(
               delegate: SliverChildBuilderDelegate(
-                (context, index) => _getGridItem(index),
-                childCount: 5,
+                (context, index) => _getGridItem(index, userList[index]),
+                childCount: userList.length,
               ),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
@@ -149,7 +151,7 @@ class ShareBottomSheet extends StatelessWidget {
     );
   }
 
-  Widget _getGridItem(int index) {
+  Widget _getGridItem(int index, User user) {
     return Column(
       children: [
         ClipRRect(
@@ -158,14 +160,14 @@ class ShareBottomSheet extends StatelessWidget {
             width: 60,
             height: 60,
             child: Image.network(
-              '',
+              user.picture,
             ),
           ),
         ),
         const SizedBox(height: 10),
-        const Text(
-          ' userlist[index].name',
-          style: TextStyle(color: Colors.white, fontFamily: 'gb'),
+        Text(
+          user.name,
+          style: const TextStyle(color: Colors.white, fontFamily: 'gb'),
           textAlign: TextAlign.center,
         )
       ],

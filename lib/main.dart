@@ -20,10 +20,12 @@ void main(List<String> args) {
       statusBarIconBrightness: Brightness.light,
     ),
   );
-  runApp( BlocProvider<UserBloc>(
-    create: (context) => UserBloc(),
-    child: MyApp(),
-  ));
+  runApp(
+    BlocProvider<UserBloc>(
+      create: (context) => UserBloc(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
