@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:uniquegram/bloc/User/user_bloc.dart';
 import 'package:uniquegram/screens/splash_screen.dart';
 import 'package:uniquegram/theme_data.dart';
 
@@ -18,7 +20,12 @@ void main(List<String> args) {
       statusBarIconBrightness: Brightness.light,
     ),
   );
-  runApp(const MyApp());
+  runApp(
+    BlocProvider<UserBloc>(
+      create: (context) => UserBloc(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

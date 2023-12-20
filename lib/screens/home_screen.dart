@@ -28,6 +28,8 @@ class _HomeScrennState extends State<HomeScrenn> {
       backgroundColor: const Color(0xff1C1F2E),
       body: SafeArea(
         child: CustomScrollView(
+          //! this property used for dismiss keybord when scrolling
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           physics: const BouncingScrollPhysics(),
           slivers: [
             SliverAppBar(
