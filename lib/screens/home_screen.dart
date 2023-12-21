@@ -99,10 +99,24 @@ class _HomeScrennState extends State<HomeScrenn> {
                 ),
               ),
             ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) => const PostWidget(),
-              ),
+            BlocBuilder<UserBloc, UserState>(
+              builder: (context, state) {
+                if (state is UserResponseState) {
+                  var userList = state.userList;
+                  return SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) => PostWidget(
+                        user: userList[index],
+                        index: ++index,
+                      ),
+                      childCount: 16,
+                    ),
+                  );
+                }
+                return SliverToBoxAdapter(
+                  child: Container(),
+                );
+              },
             )
           ],
         ),

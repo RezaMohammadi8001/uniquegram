@@ -5,7 +5,7 @@ class UserDatasource {
   Future<List<User>> getUserList() async {
     try {
       var respones = await Dio()
-          .get('https://randomuser.me/api/?page=1&results=30&seed=abc');
+          .get('https://randomuser.me/api/?page=3&results=30&seed=abc');
       return respones.data['results']
           .map<User>((jsonObject) => User.fromJson(jsonObject))
           .toList();
