@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:uniquegram/bloc/cubit/image_picker_cubit.dart';
 
 class AddContentScreen extends StatelessWidget {
   const AddContentScreen({super.key});
@@ -59,9 +62,16 @@ class AddContentScreen extends StatelessWidget {
                     width: 394.w,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(15),
-                      child: Image.asset(
-                        'assets/images/pro2.jpg',
-                        fit: BoxFit.cover,
+                      child: BlocBuilder<ImagePickerCubit, ImagePickerState>(
+                        builder: (context, state) {
+                          if (state is ImagePickerSuccess) {
+                            return state.image;
+                          }
+                          return Image.asset(
+                            'assets/images/pro2.jpg',
+                            fit: BoxFit.cover,
+                          );
+                        },
                       ),
                     ),
                   ),
@@ -117,19 +127,31 @@ class AddContentScreen extends StatelessWidget {
                           color: const Color(0xffF35383),
                         ),
                       ),
-                      Text(
-                        'Gallery',
-                        style: TextStyle(
-                            fontSize: 16.sp,
-                            fontFamily: 'GB',
-                            color: Colors.white),
+                      InkWell(
+                        onTap: () {
+                          BlocProvider.of<ImagePickerCubit>(context)
+                              .pickImage(ImageSource.gallery);
+                        },
+                        child: Text(
+                          'Gallery',
+                          style: TextStyle(
+                              fontSize: 16.sp,
+                              fontFamily: 'GB',
+                              color: Colors.white),
+                        ),
                       ),
-                      Text(
-                        'Take',
-                        style: TextStyle(
-                            fontSize: 16.sp,
-                            fontFamily: 'GB',
-                            color: Colors.white),
+                      InkWell(
+                        onTap: () {
+                          BlocProvider.of<ImagePickerCubit>(context)
+                              .pickImage(ImageSource.camera);
+                        },
+                        child: Text(
+                          'Take',
+                          style: TextStyle(
+                              fontSize: 16.sp,
+                              fontFamily: 'GB',
+                              color: Colors.white),
+                        ),
                       ),
                     ],
                   ),

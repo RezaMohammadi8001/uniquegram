@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:lottie/lottie.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -337,14 +338,19 @@ Lover of technology and a bit of a biologist \u{1F52C}''',
                     ],
                   ),
                 ),
-                const CustomScrollView(
+                CustomScrollView(
                   slivers: [
                     SliverToBoxAdapter(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(height: 10),
-                          Text(
+                          const SizedBox(height: 100),
+                          Lottie.asset(
+                            'assets/lottieJson/not found.json',
+                            repeat: false,
+                          ),
+                          const SizedBox(height: 10),
+                          const Text(
                             'Nothing Found',
                             style: TextStyle(
                                 color: Colors.white,

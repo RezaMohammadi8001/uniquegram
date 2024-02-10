@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uniquegram/bloc/User/user_bloc.dart';
+import 'package:uniquegram/bloc/cubit/image_picker_cubit.dart';
 import 'package:uniquegram/screens/splash_screen.dart';
 import 'package:uniquegram/theme_data.dart';
 
@@ -21,8 +22,11 @@ void main(List<String> args) {
     ),
   );
   runApp(
-    BlocProvider<UserBloc>(
-      create: (context) => UserBloc(),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => UserBloc()),
+        BlocProvider(create: (context) => ImagePickerCubit())
+      ],
       child: const MyApp(),
     ),
   );
