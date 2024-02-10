@@ -10,8 +10,8 @@ class ImagePickerCubit extends Cubit<ImagePickerState> {
   final ImagePicker imagePicker = ImagePicker();
   XFile? fileImage;
 
-  void pickImage() async {
-    fileImage = await imagePicker.pickImage(source: ImageSource.gallery);
+  void pickImage(ImageSource source ) async {
+    fileImage = await imagePicker.pickImage(source: source);
     if (fileImage != null) {
       var image = Image.file(
         File(fileImage!.path),
